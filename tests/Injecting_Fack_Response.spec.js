@@ -5,7 +5,7 @@ const { APIUtils } = require('../utils/APIUtils');
 //Taking data from the payloads section
 const loginPayLoad = { userEmail: "aranganambi.elumalai@gmail.com", userPassword: "Eras@9080068137" }
 const orderPayLoad = { orders: [{ country: "India", productOrderedId: "6960eae1c941646b7a8b3ed3" }] }
-const fackPayLoad = { data: [], message: "No Orders" };
+const fackPayLoad = { data: [], message: "No Orders"};
 let response;
 //API calls
 test.beforeAll(async () => {
