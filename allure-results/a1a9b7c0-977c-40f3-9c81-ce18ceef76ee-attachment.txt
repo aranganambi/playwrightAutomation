@@ -1,0 +1,1 @@
+getByText('Thankyou for the order.')
