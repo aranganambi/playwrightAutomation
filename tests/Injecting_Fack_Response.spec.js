@@ -16,7 +16,7 @@ test.beforeAll(async () => {
 });
 
 
-test('End_To_End_locator_Practice', async ({ browser }) => {
+test('@API End_To_End_locator_Practice', async ({ browser }) => {
 
   const context = await browser.newContext();
   const page = await context.newPage();
