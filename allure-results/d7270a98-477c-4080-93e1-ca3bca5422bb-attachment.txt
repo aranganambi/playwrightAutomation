@@ -1,0 +1,10 @@
+ZARA COAT 3
+ZARA COAT 3
+* Coupon Applied
+ Thankyou for the order. 
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 61739,
+  [Symbol(trigger_async_id_symbol)]: 61258,
+  [Symbol(kResourceStore)]: undefined
+}
