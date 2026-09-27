@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Fack OrderID In The URL', async ({ page }) => {
+test('@API Fack OrderID In The URL', async ({ page }) => {
     await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
     await page.locator("input#userEmail").fill("aranganambi.elumalai@gmail.com");
     await page.locator("input#userPassword").fill("Eras@9080068137");

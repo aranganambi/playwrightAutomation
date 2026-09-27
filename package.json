@@ -8,7 +8,8 @@
     "generateAllure": "allure generate ./allure-results --clean",
     "openAllure": "allure open ./allure-report",
     "regression": "npx playwright test",
-    "smoke": "npx playwright test --grep \"@smoke\""
+    "smoke": "npx playwright test --grep \"@smoke\"",
+    "api": "npx playwright test --grep \"@API\""
 
   },
   "keywords": [],
