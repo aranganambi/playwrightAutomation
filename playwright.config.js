@@ -16,7 +16,7 @@ export default defineConfig({
       open: 'never'
     }]
   ],
-
+  workers: 3,
   use: {
     actionTimeout: 30000,
     navigationTimeout: 30 * 1000,
@@ -27,6 +27,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
     ignoreHTTPSErrors: true,
     permissions:['geolocation'],
+  
     //viewport: {width:61, height:132}
     //...devices['iPhone 12'],
   },
