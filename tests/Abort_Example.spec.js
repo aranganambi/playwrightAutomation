@@ -15,10 +15,4 @@ test('abort example', async ({ page }) => {
     await page.locator("input#userPassword").fill("Eras@9080068137");
     await page.locator("input#login").click();
 
-}
-
-
-
-
-
-)
+})
