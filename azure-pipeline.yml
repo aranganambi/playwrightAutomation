@@ -1,0 +1,27 @@
+- task: PowerShell@2
+  enabled: true
+  displayName: 'Install dependencies'
+  inputs:
+    targetType: 'inline'
+    script: 'npm ci'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+- task: AzureCLI@2
+  displayName: 'Run Playwright Tests'
+  inputs:
+    azureSubscription: 'playwrightTesting'
+    scriptType: 'pscore'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      npx playwright test --config=playwright.service.config.js --workers=20
+    addSpnToEnvironment: true
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+  env:
+    PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Upload Playwright Report'
+  inputs:
+    targetPath: '$(System.DefaultWorkingDirectory)/playwright-report'
+    artifact: 'Playwright tests'
+    publishLocation: 'pipeline'

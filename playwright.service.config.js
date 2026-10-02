@@ -1,20 +1,27 @@
-const { defineConfig } = require('@playwright/test');
-const { getServiceConfig, ServiceOS } = require('@azure/microsoft-playwright-testing');
+import { defineConfig } from '@playwright/test';
+import {
+  createAzurePlaywrightConfig,
+  ServiceOS,
+  ServiceAuth
+} from '@azure/playwright';
+import { AzureCliCredential } from '@azure/identity';
 
-const config = require('./playwright.config');
+import config from './playwright.config';
 
-module.exports = defineConfig(
+export default defineConfig(
   config,
-  getServiceConfig(config, {
-    exposeNetwork: '<loopback>',
-    timeout: 30000,
+
+  createAzurePlaywrightConfig(config, {
+    serviceAuthType: ServiceAuth.ENTRA_ID,
+
     os: ServiceOS.LINUX,
-    useCloudHostedBrowsers: true
-  }),
-  {
-    reporter: [
-      ['list'],
-      ['@azure/microsoft-playwright-testing/reporter']
-    ]
-  }
+
+    credential: new AzureCliCredential(),
+
+    exposeNetwork: '<loopback>',
+
+    connectTimeout: 30000,
+
+    runName: 'Azure DevOps Playwright Run'
+  })
 );
