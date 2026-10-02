@@ -1,8 +1,8 @@
 trigger:
-  - expansion
+  - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-24.04'
 
 steps:
 
@@ -13,7 +13,7 @@ steps:
 - task: NodeTool@0
   displayName: 'Install Node.js'
   inputs:
-    versionSpec: '20.x'
+    version: '20.x'
 
 # 3. Install npm dependencies
 - task: PowerShell@2
