@@ -36,7 +36,7 @@ steps:
       az account show
 
       Write-Host "Running Playwright tests..."
-      npx playwright test --config=playwright.service.config.ts --workers=20
+      npx playwright test --config=playwright.service.config.js
     addSpnToEnvironment: true
     workingDirectory: '$(Build.SourcesDirectory)'
   env:
