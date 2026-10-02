@@ -1,30 +1,11 @@
-trigger:
-  - main
-
-pool:
-  vmImage: 'ubuntu-24.04'
-
-steps:
-
-# 1. Checkout source code
-- checkout: self
-
-# 2. Install Node.js
-- task: NodeTool@0
-  displayName: 'Install Node.js'
-  inputs:
-    version: '20.x'
-
-# 3. Install npm dependencies
 - task: PowerShell@2
+  enabled: true
   displayName: 'Install dependencies'
   inputs:
     targetType: 'inline'
-    script: |
-      npm ci
-    workingDirectory: '$(Build.SourcesDirectory)'
+    script: 'npm ci'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
 
-# 4. Run Playwright tests on Microsoft Playwright Workspaces
 - task: AzureCLI@2
   displayName: 'Run Playwright Tests'
   inputs:
@@ -32,21 +13,15 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      Write-Host "Azure account:"
-      az account show
-
-      Write-Host "Running Playwright tests..."
-      npx playwright test --config=playwright.service.config.js
+      npx playwright test --config=playwright.service.config.js --workers=20
     addSpnToEnvironment: true
-    workingDirectory: '$(Build.SourcesDirectory)'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
   env:
     PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
 
-# 5. Publish Playwright HTML report
 - task: PublishPipelineArtifact@1
   displayName: 'Upload Playwright Report'
-  condition: always()
   inputs:
-    targetPath: '$(Build.SourcesDirectory)/playwright-report'
-    artifact: 'Playwright-Report'
+    targetPath: '$(System.DefaultWorkingDirectory)/playwright-report'
+    artifact: 'Playwright tests'
     publishLocation: 'pipeline'
