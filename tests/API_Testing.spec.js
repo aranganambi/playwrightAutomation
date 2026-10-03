@@ -7,32 +7,42 @@ const loginPayLoad = {userEmail:"aranganambi.elumalai@gmail.com",userPassword:"E
 const orderPayLoad = {orders:[{country:"India",productOrderedId:"6960eae1c941646b7a8b3ed3"}]}
 
 let response;
+
 //API calls
-test.beforeAll( async()=>
- { const apiContext = await request.newContext();
-   const apiUtils = new APIUtils(apiContext, loginPayLoad);
-   response = await apiUtils.creatOrder(orderPayLoad);
+test.beforeAll(async () => {
+  const apiContext = await request.newContext();
+  const apiUtils = new APIUtils(apiContext, loginPayLoad);
+  response = await apiUtils.createOrder(orderPayLoad);
 
-  });
+  // Validate API response
+   expect(response).toBeTruthy();
+   expect(response.token).toBeTruthy();
+   expect(response.orderId).toBeTruthy();
+});
 
-
-test('@API End_To_End_locator_Practice', async({browser})=>
+test('@API End_To_End_locator_Practice', async({browser}) =>
 {
- 
-   const context = await browser.newContext();
-   const page = await context.newPage();
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
-   // Integrating API Calls In The Testcase 
-   await page.addInitScript(value=> {
-   window.localStorage.setItem('token',value)},
-   response.token);
+  // Integrating API Calls In The Testcase
+  await page.addInitScript(value => {
+    window.localStorage.setItem('token', value);
+  }, response.token);
 
-   await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-   
+  await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 
-   await page.getByRole('button', {name:'  ORDERS'}).filter({hasText: "  ORDERS"}).click();
+  // Validate login page loaded
+  await expect(page).toHaveURL(/\/client\/#/);
 
-   //Clicking to view the oders
-   await page.locator("tr").filter({hasText: response.orderId}).getByRole('button', {name: "View"}).click();
-   console.log(response.orderId);
-})
+  // Open orders page
+  await page.getByRole('button', {name:/orders/i}).click();
+
+  //Clicking to view the orders
+  const orderRow = page.locator("tr").filter({hasText: response.orderId});
+  await expect(orderRow).toBeVisible();
+
+  await orderRow.getByRole('button', {name: /view/i}).click();
+
+  console.log(response.orderId);
+});

@@ -19,7 +19,7 @@ class APIUtils{
         return token;
 }
 
-async creatOrder(orderPayLoad){
+async createOrder(orderPayLoad){
     let response = {};
 
     response.token = await this.getToken();

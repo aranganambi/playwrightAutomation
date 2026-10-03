@@ -1,0 +1,9 @@
+[
+  'ADIDAS ORIGINAL$ 11500 View Add To Cart',
+  'ZARA COAT 3$ 11500 View Add To Cart',
+  'iphone 13 pro$ 55000 View Add To Cart'
+]
+* Coupon Applied
+ Thankyou for the order. 
+ | 6ac09de92be7a4bc2b851bdb | 
+6ac09de92be7a4bc2b851bdb
