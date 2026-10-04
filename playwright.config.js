@@ -16,7 +16,7 @@ export default defineConfig({
       open: 'never'
     }]
   ],
-  workers: 3,
+  workers: 5,
   use: {
     actionTimeout: 30000,
     navigationTimeout: 30 * 1000,
