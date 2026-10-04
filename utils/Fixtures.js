@@ -21,7 +21,7 @@ exports.customTest = base.test.extend({
    creatOrder : async({},use) =>{
     const apiContext = await request.newContext();
     const apiUtils = new APIUtils(apiContext, loginPayLoad);
-    const response = await apiUtils.creatOrder(orderPayLoad);
+    const response = await apiUtils.createOrder(orderPayLoad);
     await use(response);
     
    } 
