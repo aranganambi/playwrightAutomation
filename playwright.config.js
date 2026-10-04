@@ -14,8 +14,11 @@ export default defineConfig({
     ['html', {
       outputFolder: 'playwright-report',
       open: 'never'
-    }]
-  ],
+    }],
+
+    ['junit', {
+      outputFile: 'test-results/results.xml'
+    }]],
   workers: 5,
   use: {
     actionTimeout: 30000,
@@ -26,8 +29,8 @@ export default defineConfig({
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
     ignoreHTTPSErrors: true,
-    permissions:['geolocation'],
-  
+    permissions: ['geolocation'],
+
     //viewport: {width:61, height:132}
     //...devices['iPhone 12'],
   },
