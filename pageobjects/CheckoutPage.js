@@ -33,8 +33,8 @@ class CheckoutPage {
         await this.applyCoupon.click();
         await expect(this.confirmMessage).toContainText(Coupon);
         console.log(await this.confirmMessage.textContent());
-        await this.mailID.fill(mail);
-        await this.country.pressSequentially(country);
+        //await this.mailID.fill(mail);
+       // await this.country.pressSequentially(country);
         await this.countryList.filter({ hasText: " India" }).click();
         await this.placeOrder.click();
 
