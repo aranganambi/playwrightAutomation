@@ -9,7 +9,8 @@
     "openAllure": "allure open ./allure-report",
     "regression": "npx playwright test",
     "smoke": "npx playwright test --grep \"@smoke\"",
-    "api": "npx playwright test --grep \"@API\""
+    "api": "npx playwright test --grep \"@API\"",
+    "html": "npx cucumber-js --exit --format html:cucumber.html"
   },
   "keywords": [],
   "author": "",
