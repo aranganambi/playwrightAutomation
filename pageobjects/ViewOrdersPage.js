@@ -9,6 +9,7 @@ class ViewOrdersPage{
     async clickingViewButton(orderId){
         await this.ordersButton.filter({hasText: "  ORDERS"}).click();
         await this.viewButton.filter({hasText: orderId}).getByRole('button', {name: "View"}).click();
+        //await browser.close(); 
     }
 }
 module.exports = {ViewOrdersPage};

@@ -17,6 +17,7 @@
   "description": "",
   "devDependencies": {
     "@azure/microsoft-playwright-testing": "^1.0.0-beta.9",
+    "@cucumber/cucumber": "^12.2.0",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.2.0",
     "allure-playwright": "^3.12.2"
