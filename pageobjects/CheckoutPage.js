@@ -43,6 +43,7 @@ class CheckoutPage {
         const rawId = await this.orderid.nth(1).textContent();
         CheckoutPage.orderId = await rawId.replace(/\|/g, "").trim();
         console.log(CheckoutPage.orderId);
+        
     }
 }
 module.exports = { CheckoutPage };
