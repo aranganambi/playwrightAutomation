@@ -25,9 +25,9 @@ export default defineConfig({
     navigationTimeout: 30 * 1000,
     browserName: 'chromium',
     headless: true,
-    screenshot: 'only-on-failure',
+    screenshot: 'on',
     video: 'retain-on-failure',
-    trace: 'retain-on-failure',
+    trace: 'on-first-retry',
     ignoreHTTPSErrors: true,
     permissions: ['geolocation'],
 
