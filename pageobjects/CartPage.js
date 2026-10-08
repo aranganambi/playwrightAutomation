@@ -10,6 +10,7 @@ class CartPage {
         await expect(this.productContent).toContainText(product);
         console.log(await this.productContent.textContent());
         await this.checkoutButton.click();
+        
     }
 }
 
