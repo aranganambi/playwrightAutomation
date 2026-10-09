@@ -1,0 +1,70 @@
+- generic [ref=f6e2]:
+  - navigation [ref=f6e5]:
+    - link "ProtoCommerce" [ref=f6e6] [cursor=pointer]:
+      - /url: "#"
+    - list [ref=f6e7]:
+      - listitem [ref=f6e8]:
+        - link "Home" [ref=f6e9] [cursor=pointer]:
+          - /url: /angularpractice
+      - listitem [ref=f6e10]:
+        - link "Shop" [ref=f6e11] [cursor=pointer]:
+          - /url: /angularpractice/shop
+  - generic [ref=f6e12]:
+    - navigation [ref=f6e13]:
+      - generic [ref=f6e14]:
+        - link "ProtoCommerce Home" [ref=f6e15] [cursor=pointer]:
+          - /url: "#"
+        - generic:
+          - list:
+            - listitem
+    - table [ref=f6e97]:
+      - rowgroup [ref=f6e98]:
+        - row [ref=f6e99]:
+          - columnheader "Product" [ref=f6e100]
+          - columnheader "Quantity" [ref=f6e101]
+          - columnheader "Price" [ref=f6e102]
+          - columnheader "Total" [ref=f6e103]
+          - columnheader [ref=f6e104]
+      - rowgroup [ref=f6e105]:
+        - row [ref=f6e106]:
+          - cell [ref=f6e107]:
+            - generic [ref=f6e108]:
+              - link [ref=f6e109] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=f6e111]:
+                - heading [level=4] [ref=f6e112]:
+                  - link "iphone X" [ref=f6e113] [cursor=pointer]:
+                    - /url: "#"
+                - heading [level=5] [ref=f6e114]:
+                  - text: by
+                  - link "Sim cart" [ref=f6e115] [cursor=pointer]:
+                    - /url: "#"
+                - text: "Status:"
+                - strong [ref=f6e117]: In Stock
+          - cell [ref=f6e118]:
+            - spinbutton [ref=f6e119]: "1"
+          - cell [ref=f6e120]:
+            - strong [ref=f6e121]: ₹. 100000
+          - cell [ref=f6e122]:
+            - strong [ref=f6e123]: ₹. 100000
+          - cell [ref=f6e124]:
+            - button "Remove" [ref=f6e125] [cursor=pointer]
+        - row [ref=f6e126]:
+          - cell [ref=f6e127]
+          - cell [ref=f6e128]
+          - cell [ref=f6e129]
+          - cell [ref=f6e130]:
+            - heading "Total" [level=3] [ref=f6e131]
+          - cell [ref=f6e132]:
+            - heading [level=3] [ref=f6e133]:
+              - strong [ref=f6e134]: ₹. 100000
+        - row [ref=f6e135]:
+          - cell [ref=f6e136]
+          - cell [ref=f6e137]
+          - cell [ref=f6e138]
+          - cell [ref=f6e139]:
+            - button "Continue Shopping" [ref=f6e140] [cursor=pointer]
+          - cell [ref=f6e141]:
+            - button "Checkout" [ref=f6e142] [cursor=pointer]
+    - contentinfo [ref=f6e89]:
+      - paragraph [ref=f6e91]: Copyright © ProtoCommerce 2018
