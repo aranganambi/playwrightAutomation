@@ -2,8 +2,8 @@ const { test, expect, request } = require('@playwright/test');
 
 test('@API Fack OrderID In The URL', async ({ page }) => {
     await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-    await page.locator("input#userEmail").fill("aranganambi.elumalai@gmail.com");
-    await page.locator("input#userPassword").fill("Eras@9080068137");
+    await page.locator("input#userEmail").fill("aranganambi@gmail.com");
+    await page.locator("input#userPassword").fill("Aranganambi@123");
     await page.locator("input#login").click();
     await page.waitForLoadState('networkidle');
     await page.locator('[routerlink*="myorders"]').click();
