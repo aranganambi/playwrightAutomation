@@ -1,14 +1,14 @@
 //Autor: Aranganambi
 const { test, expect } = require('@playwright/test');
 
-test.describe.configure({mode: 'parallel'});
+test.describe.configure({ mode: 'parallel' });
 test('Alert', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     await page.getByRole('textbox', { name: 'Type to Select Countries' }).pressSequentially("ind");
-    await page.locator("#ui-id-1").filter({hasText: "India"}).click();
+    await page.locator("#ui-id-1").filter({ hasText: "India" }).click();
     await page.getByPlaceholder("Enter Your Name").fill("Aranganambi");
 
     //Alert Handling
@@ -27,7 +27,7 @@ test('Screenshot', async ({ page }) => {
 
 })
 
-test.skip('Visual Comparison', async ({ page }) => {
+test.only('Visual Comparison', async ({ page }) => {
     await page.goto("https://www.google.com/");
     expect(await page.screenshot()).toMatchSnapshot('landing.png');
 
