@@ -11,8 +11,8 @@ test('abort example', async ({ page }) => {
     // Printing all API Response URL & Status Code
     page.on('response', Response => console.log(Response.url(), Response.status()));
     await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-    await page.getByRole('textbox', { name: 'email@example.com' }).fill("aranganambi.elumalai@gmail.com");
-    await page.locator("input#userPassword").fill("Eras@9080068137");
+    await page.getByRole('textbox', { name: 'email@example.com' }).fill("aranganambi@gmail.com");
+    await page.locator("input#userPassword").fill("Aranganambi@123");
     await page.locator("input#login").click();
 
 })

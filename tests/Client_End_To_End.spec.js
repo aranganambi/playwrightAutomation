@@ -12,8 +12,8 @@ test('End', async ({browser})=>
 
    //Login
    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-   await page.getByRole('textbox', { name: 'email@example.com' }).fill("aranganambi.elumalai@gmail.com");
-   await page.locator("input#userPassword").fill("Eras@9080068137");
+   await page.getByRole('textbox', { name: 'email@example.com' }).fill("aranganambi@gmail.com");
+   await page.locator("input#userPassword").fill("Aranganambi@123");
    await page.locator("input#login").click();
    
 
@@ -33,7 +33,7 @@ test('End', async ({browser})=>
    await page.locator('[class="btn btn-primary mt-1"]').click();
    await expect(page.locator('[class="mt-1 ng-star-inserted"]')).toContainText("Coupon")
    console.log(await page.locator('[class="mt-1 ng-star-inserted"]').textContent());
-   await page.locator('[class="input txt text-validated ng-untouched ng-pristine ng-valid"]').fill("aranganambi.elumalai@gmail.com");
+   await page.locator('[class="input txt text-validated ng-untouched ng-pristine ng-valid"]').fill("aranganambi@gmail.com");
    await page.locator('[placeholder="Select Country"]').pressSequentially("ind");
 
    await page.locator(".ta-results").filter({hasText: " India"}).click();
@@ -55,12 +55,12 @@ test('End_To_End', async ({browser})=>
 
    const products = page.locator(".card-body");
    const producdName = "ADIDAS ORIGINAL";
-   const userName = "aranganambi.elumalai@gmail.com";
+   const userName = "aranganambi@gmail.com";
 
 
    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
    await page.locator("input#userEmail").fill(userName);
-   await page.locator("input#userPassword").fill("Eras@9080068137");
+   await page.locator("input#userPassword").fill("Aranganambi@123");
    await page.locator("input#login").click();
    
 

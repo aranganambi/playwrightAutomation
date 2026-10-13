@@ -44,8 +44,8 @@ test('End_To_End_locator_Practice', async({browser})=>
 
 
    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-   await page.getByPlaceholder("email@example.com").fill("aranganambi.elumalai@gmail.com");
-   await page.getByPlaceholder("enter your passsword").fill("Eras@9080068137");
+   await page.getByPlaceholder("email@example.com").fill("aranganambi@gmail.com");
+   await page.getByPlaceholder("enter your passsword").fill("Aranganambi@123");
    await page.getByRole('button', {name: 'Login'}).click();
    await page.locator(".card-body").nth(0).waitFor();
 
@@ -75,7 +75,7 @@ test('End_To_End_locator_Practice', async({browser})=>
    //Selecting Country Dropdown
    await page.getByPlaceholder("Select Country").pressSequentially("ind");
    await page.locator(".ta-results").filter({hasText: " India"}).click();
-   await page.locator('[class*="input"]').nth(7).fill("aranganambi.elumalai@gmail.com");
+   await page.locator('[class*="input"]').nth(7).fill("aranganambi@gmail.com");
    await page.getByText("Place Order ").click();
    await expect(page.getByText(" Thankyou for the order. ")).toBeVisible();
 

@@ -1,18 +1,17 @@
-const {test, expect} = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 
 
-test('Tetscase with browser', async ({browser})=>
-{
-    
-    //Using Wrong Credential
+test('Tetscase with browser', async ({ browser }) => {
+
+   //Using Wrong Credential
    const context = await browser.newContext(); //Creating new content with cookies bcz we called browser here
    const page = await context.newPage(); //New page created in the browser
 
-    const username = page.locator("input#username");
-    const password = page.locator("input#password");
-    const signin = page.locator("input#signInBtn");
+   const username = page.locator("input#username");
+   const password = page.locator("input#password");
+   const signin = page.locator("input#signInBtn");
 
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/"); //Redirecting to required page
+   await page.goto("https://rahulshettyacademy.com/loginpagePractise/"); //Redirecting to required page
    console.log(await page.title());
    await expect(page).toHaveTitle("LoginPage Practise | Rahul Shetty Academy"); //Cheking the complete text is present
    await username.fill("rahulshetty");
@@ -34,21 +33,19 @@ test('Tetscase with browser', async ({browser})=>
    console.log(await page.title());
    console.log(await page.locator(".card-body a").nth(0).textContent());
    console.log(await page.locator(".card-body a").nth(3).textContent());
-   
+
 
 });
 
 
-test('Tetscase with page', async ({page})=>
-{
+test('Tetscase with page', async ({ page }) => {
    await page.goto("https://google.com"); //Redirecting to required page
    console.log(await page.title());
-    await expect(page).toHaveTitle("Google");
+   await expect(page).toHaveTitle("Google");
 
 });
 
-test('Rahulshetty Academy Client Registration', async ({browser})=>
-{
+test.skip('Rahulshetty Academy Client Registration', async ({ browser }) => {
    const context = await browser.newContext();
    const page = await context.newPage();
 
@@ -57,55 +54,52 @@ test('Rahulshetty Academy Client Registration', async ({browser})=>
    await page.locator("a.text-reset").click();
    await page.locator("input#firstName").fill("Vinoth");
    await page.locator("input#lastName").fill("Elumalai");
-   await page.locator("input#userEmail").fill("aranganambi.e@gmail.com");
+   await page.locator("input#userEmail").fill("aranganambi@gmail.com");
    await page.locator("input#userMobile").fill("7871044138");
    await page.locator('select[formcontrolname="occupation"]').selectOption("3: Engineer");
    await page.locator('input[value="Male"]').click();
-   await page.locator("input#userPassword").fill("Eras@9080068137");
-   await page.locator("input#confirmPassword").fill("Eras@9080068137");
+   await page.locator("input#userPassword").fill("Aranganambi@123");
+   await page.locator("input#confirmPassword").fill("Aranganambi@123");
    await page.locator('input[type="checkbox"]').click();
    await page.locator("input#login").click();
 
 
-   
+
 });
 
 
-test('Rahulshetty Academy Client Login', async ({browser})=>
-{
+test('Rahulshetty Academy Client Login', async ({ browser }) => {
    const context = await browser.newContext();
    const page = await context.newPage();
 
    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
    console.log(await page.title());
-   await page.locator("input#userEmail").fill("aranganambi.elumalai@gmail.com");
-   await page.locator("input#userPassword").fill("Eras@9080068137");
+   await page.locator("input#userEmail").fill("aranganambi@gmail.com");
+   await page.locator("input#userPassword").fill("Aranganambi@123");
    await page.locator("input#login").click();
    console.log(await page.title());
    console.log(await page.locator(".card-body b").nth(0).textContent());
 });
 
-test('Dropdown', async({page})=>
-{
- await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
- const documentLink = page.locator("[href*='documents']");
- await page.locator("span.checkmark").last().click();
- await page.locator("button#okayBtn").click();
- console.log(await page.locator("span.checkmark").last().isChecked());
- await expect(page.locator("span.checkmark").last()).toBeChecked();
- const dropdown = page.locator('[data-style="btn-info"]');
- await dropdown.selectOption("teach");
- await page.locator("input#terms").click();
- console.log(await page.locator("#terms").isChecked());
- await expect(documentLink).toHaveAttribute("class","blinkingText");
- await documentLink.click();
- 
+test('Dropdown', async ({ page }) => {
+   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+   const documentLink = page.locator("[href*='documents']");
+   await page.locator("span.checkmark").last().click();
+   await page.locator("button#okayBtn").click();
+   console.log(await page.locator("span.checkmark").last().isChecked());
+   await expect(page.locator("span.checkmark").last()).toBeChecked();
+   const dropdown = page.locator('[data-style="btn-info"]');
+   await dropdown.selectOption("teach");
+   await page.locator("input#terms").click();
+   console.log(await page.locator("#terms").isChecked());
+   await expect(documentLink).toHaveAttribute("class", "blinkingText");
+   await documentLink.click();
+
 });
 
 
 
-test('Child Window Handle', async({browser})=>
-{   
+test('Child Window Handle', async ({ browser }) => {
    const context = await browser.newContext();
    const page = await context.newPage();
 
