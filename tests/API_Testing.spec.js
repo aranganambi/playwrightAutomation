@@ -3,14 +3,12 @@ const { test, expect, request } = require('@playwright/test');
 const { APIUtils } = require('../utils/APIUtils');
 
 // Load the login credentials from the existing JSON test data.
-const testData = JSON.parse(
-  JSON.stringify(require('../utils/testDatas1.json'))
-);
+const testData = JSON.parse(JSON.stringify(require('../utils/testDatas1.json')));
 
 // Prepare the login payload for the API.
 const loginPayload = {
   userEmail: testData.username,
-  userPassword: testData.password,
+  userPassword: testData.password
 };
 
 // Prepare the order payload for the API.

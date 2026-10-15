@@ -10,7 +10,7 @@
     "regression": "npx playwright test",
     "smoke": "npx playwright test --grep \"@smoke\"",
     "api": "npx playwright test --grep \"@API\"",
-    "html": "npx cucumber-js --exit --format html:cucumber.html",
+    "cucumber": "npx cucumber-js --exit --format html:cucumber.html",
     "cloudRunner": "npx playwright test --config=playwright.service.config.js --workers=5"
   },
   "keywords": [],

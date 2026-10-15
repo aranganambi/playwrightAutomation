@@ -1,3 +1,5 @@
+const { expect } = require('@playwright/test');
+
 class APIUtils{
 
     constructor(apiContext, loginPayLoad){
@@ -13,33 +15,32 @@ class APIUtils{
         data: this.loginPayLoad
     });
 
+        await expect(loginResponse, 'API login request failed').toBeOK();
         const loginResponseJson = await loginResponse.json(); 
         const token = loginResponseJson.token;
-        console.log(token);
+        expect(token, 'Login token was not returned').toBeTruthy();
         return token;
 }
 
 async createOrder(orderPayLoad){
-    let response = {};
-
-    response.token = await this.getToken();
+    const token = await this.getToken();
 
     //API call for ordering scenario
     const orderResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
             {
             data : orderPayLoad,
             headers: {
-                'Authorization' : response.token,
+                'Authorization' : token,
                 'content-type' : 'application/json'
     
             }
     });
 
+    await expect(orderResponse, 'API order creation failed').toBeOK();
     const orderResponseJson = await orderResponse.json();
-    console.log(orderResponseJson);
-    const orderId = orderResponseJson.orders[0];
-    response.orderId = orderId;
-    return response;
+    const orderId = orderResponseJson.orders?.[0];
+    expect(orderId, 'Order ID was not returned').toBeTruthy();
+    return { token, orderId };
 }
 }
 
