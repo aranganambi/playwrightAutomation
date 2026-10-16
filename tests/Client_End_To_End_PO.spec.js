@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { POManager } = require('../pageobjects/POManager');
 
-//Using for invoke the  static orderId from the CheckoutPage
+//Using for invoke the  static orderId from the CheckoutPage 
 const { CheckoutPage } = require('../pageobjects/CheckoutPage');
 
 //JSON -> String -> js object
